@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masafumi Endo</title>
+<meta name="description" content="Masafumi Endo (遠藤正文) — Research Scientist at CyberAgent AI Lab, working on embodied AI for everyday scenarios, with a focus on decision-making and scene understanding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* CyberAgent greens: #418621 (AI Lab) on light, #82be28 (corporate) on dark */
+:root {
+  --bg: #ffffff;
+  --surface: #f7f8f7;
+  --ink: #1a1c1b;
+  --ink-2: #4f5452;
+  --ink-3: #868b89;
+  --rule: #e4e7e5;
+  --accent: #418621;
+  --accent-soft: #edf5e6;
+  --fig-bg: #ffffff;
+  --serif: var(--sans);
+  --sans: "IBM Plex Sans", "IBM Plex Sans JP", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+:root[data-theme="dark"] {
+  --bg: #111716; --surface: #192221; --ink: #e8ecea; --ink-2: #b1b9b6; --ink-3: #7b8582;
+  --rule: #293130; --accent: #82be28; --accent-soft: #22301a; --fig-bg: #f4f5f4;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 16px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+nav .brand { font: 600 17px var(--serif); color: var(--ink); }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; align-items: center; }
+nav ul a { color: var(--ink-2); font-size: 14.5px; }
+nav ul a:hover { color: var(--accent); text-decoration: none; }
+#theme {
+  background: none; border: 1px solid var(--rule); color: var(--ink-2);
+  border-radius: 999px; width: 30px; height: 30px; cursor: pointer; font-size: 14px;
+}
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: 1fr 220px; gap: 48px; padding: 64px 0 40px; align-items: start; }
+.hero h1 { font: 600 42px/1.1 var(--serif); margin: 0; letter-spacing: -0.02em; }
+.hero .jp { font: 400 18px var(--sans); color: var(--ink-3); margin: 6px 0 18px; letter-spacing: 0.08em; }
+.hero .role { font-weight: 500; margin: 0 0 18px; }
+.hero .role span { color: var(--ink-2); font-weight: 400; }
+.hero p { margin: 0 0 14px; color: var(--ink-2); }
+.hero p strong { color: var(--ink); font-weight: 500; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 22px; padding: 0; list-style: none; }
+.tags li {
+  font: 500 12.5px var(--mono); color: var(--accent); background: var(--accent-soft);
+  padding: 3px 10px; border-radius: 4px;
+}
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14.5px; }
+.links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); }
+.links a:hover { color: var(--accent); }
+.links svg { width: 16px; height: 16px; fill: currentColor; opacity: .75; }
+.photo {
+  width: 220px; aspect-ratio: 4 / 5; border-radius: 6px; overflow: hidden;
+  background: var(--rule);
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- sections ---------- */
+section { padding: 36px 0 12px; border-top: 1px solid var(--rule); }
+h2 {
+  font: 600 13px var(--mono); text-transform: uppercase; letter-spacing: .14em;
+  color: var(--ink-3); margin: 0 0 22px;
+}
+h3 { font: 600 20px var(--serif); margin: 28px 0 14px; }
+
+/* news */
+.news { list-style: none; margin: 0; padding: 0; }
+.news li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 7px 0; }
+.news time { font: 400 13.5px var(--mono); color: var(--ink-3); padding-top: 2px; }
+
+/* selected pubs */
+.pub {
+  display: grid; grid-template-columns: 300px 1fr; gap: 28px;
+  padding: 22px 0; border-bottom: 1px dashed var(--rule);
+}
+.pub:last-child { border-bottom: 0; }
+.pub figure {
+  margin: 0; background: var(--fig-bg); border: 1px solid var(--rule); border-radius: 6px;
+  aspect-ratio: 4 / 3; display: grid; place-items: center; overflow: hidden; position: relative;
+}
+.pub figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.pub .venue {
+  display: inline-block; margin: 2px 0 8px;
+  font: 500 11px var(--mono); background: var(--accent); color: var(--bg);
+  padding: 2px 7px; border-radius: 3px; letter-spacing: .04em;
+}
+.pub figure { cursor: zoom-in; transition: border-color .15s; }
+.pub figure:hover { border-color: var(--accent); }
+#lightbox {
+  border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh;
+  cursor: zoom-out; outline: none;
+}
+#lightbox::backdrop { background: rgba(10, 12, 11, .82); }
+#lightbox img {
+  display: block; max-width: 94vw; max-height: 92vh; width: auto; height: auto;
+  background: #fff; border-radius: 6px; padding: 12px;
+}
+.pub figure.empty { color: var(--ink-3); font: 400 12px var(--mono); background: var(--surface); }
+.pub .title { font: 600 17px/1.4 var(--serif); margin: 0 0 6px; color: var(--ink); letter-spacing: -0.005em; }
+.authors { font-size: 14.5px; color: var(--ink-2); margin: 0 0 4px; }
+.authors b { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.venue-line { font-size: 14.5px; font-style: italic; color: var(--ink-2); margin: 0 0 10px; }
+.btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.btns a, .btns button {
+  font: 500 12.5px var(--mono); color: var(--ink-2); background: transparent;
+  border: 1px solid var(--rule); border-radius: 4px; padding: 2px 9px; cursor: pointer;
+}
+.btns a:hover, .btns button:hover, .btns button[aria-expanded="true"] {
+  color: var(--accent); border-color: var(--accent); text-decoration: none;
+}
+.abs { display: none; margin: 12px 0 0; font-size: 14px; color: var(--ink-2); background: var(--surface); border-left: 2px solid var(--accent); padding: 10px 14px; }
+.abs.open { display: block; }
+.note { font-size: 13px; color: var(--ink-3); margin: 6px 0 0; }
+
+/* full list */
+.plist { list-style: none; margin: 0; padding: 0; counter-reset: p; }
+.plist li { padding: 9px 0 9px 36px; position: relative; font-size: 15px; }
+.plist li::before {
+  counter-increment: p; content: counter(p, decimal-leading-zero);
+  position: absolute; left: 0; top: 11px; font: 400 12px var(--mono); color: var(--ink-3);
+}
+.plist .t { font-weight: 500; color: var(--ink); }
+.plist .a, .plist .v { color: var(--ink-2); font-size: 14px; }
+.plist .v { font-style: italic; }
+.plist .btns { margin-top: 4px; }
+
+/* timeline */
+.tl { list-style: none; margin: 0; padding: 0; }
+.tl li { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 10px 0; }
+.tl .when { font: 400 13px var(--mono); color: var(--ink-3); padding-top: 3px; }
+.tl .org { font-weight: 600; }
+.tl .org a { color: inherit; }
+.tl .org a:hover { color: var(--accent); }
+.tl .what { color: var(--ink-2); font-size: 14.5px; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.two .tl li { grid-template-columns: 96px 1fr; gap: 16px; }
+.plain { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 14.5px; }
+.plain li { margin: 4px 0; }
+
+footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48px; font-size: 13px; color: var(--ink-3); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  nav ul li.hide-sm { display: none; }
+  nav ul { gap: 14px; }
+  .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; }
+  .hero .photo { order: -1; width: 140px; }
+  .hero h1 { font-size: 34px; }
+  .pub { grid-template-columns: 1fr; gap: 14px; }
+  .news li, .tl li { grid-template-columns: 1fr; gap: 0; }
+  .two { grid-template-columns: 1fr; gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">Masafumi Endo</a>
+    <ul>
+      <li class="hide-sm"><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li class="hide-sm"><a href="#experience">Experience</a></li>
+      <li><a href="cv.pdf">CV</a></li>
+      <li><button id="theme" aria-label="Toggle color theme">◐</button></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div>
+      <h1>Masafumi Endo</h1>
+      <div class="jp" lang="ja">遠藤 正文</div>
+      <p class="role">Research Scientist <span>· Activity Understanding Team, CyberAgent AI Lab</span></p>
+      <p>
+        I am a Research Scientist on the
+        <a href="https://research.cyberagent.ai/research/activity-understanding/">Activity Understanding Team</a>
+        at <a href="https://research.cyberagent.ai/">CyberAgent AI Lab</a>.
+        I have been passionate about developing embodied intelligence through robotics for human society.
+      </p>
+      <p>
+        During my Ph.D. at Keio University, advised by <a href="https://www.srg.mech.keio.ac.jp/">Prof. Genya Ishigami</a>, I worked on
+        <strong>risk-aware robotic autonomy for rough terrain exploration</strong>, mainly for planetary rovers.
+        Now I work on <strong>embodied AI for everyday scenarios</strong>, focusing on decision-making and scene understanding.
+      </p>
+      <p>
+        I also interned at <a href="https://www.jpl.nasa.gov/">NASA JPL</a>, <a href="https://www.fieldai.com/">Field AI</a>, and <a href="https://www.omron.com/sinicx/en/">OMRON SINIC X</a>.
+      </p>
+      <ul class="tags">
+        <li>Planning under Uncertainty</li>
+        <li>Scene Understanding</li>
+        <li>Integrated Planning and Learning</li>
+        <li>Foundation Models for Robotics</li>
+        <li>Planetary Exploration</li>
+      </ul>
+      <div class="links">
+        <a href="mailto:masafumi.endo@ieee.org">
+          <svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 2.8-8 5-8-5V17h16z"/></svg>Email</a>
+        <a href="https://scholar.google.com/citations?user=w-yR6eEAAAAJ">
+          <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zm-6.8 9.2V16c0 1.9 3 3.5 6.8 3.5s6.8-1.6 6.8-3.5v-3.8L12 16z"/></svg>Scholar</a>
+        <a href="https://github.com/masafumiendo">
+          <svg viewBox="0 0 24 24"><path d="M12 1.5a10.5 10.5 0 0 0-3.3 20.5c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7 0-.6 0-.6 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.5 1.2 3.1.9.1-.7.4-1.2.7-1.4-2.3-.3-4.8-1.2-4.8-5.2 0-1.1.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.7 1.1 1.7 1.1 2.8 0 4-2.5 4.9-4.8 5.2.4.3.7 1 .7 2v2.9c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5"/></svg>GitHub</a>
+        <a href="https://www.linkedin.com/in/masafumi-endo/">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.5h4V21H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg>LinkedIn</a>
+        <a href="cv.pdf">
+          <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12v1.5h8V12zm0 3.5V17h8v-1.5z"/></svg>CV</a>
+      </div>
+    </div>
+    <div class="photo"><img src="assets/img/profile.jpg" alt="Masafumi Endo"></div>
+  </header>
+
+  <!-- ====================================================== NEWS -->
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><time>Oct 2026</time><div>Launched my new website.</div></li>
+      <li><time>Sep 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2609.22813">Commonsense-Grounded Path Planning from Abstract Instructions</a> is on arXiv.</div></li>
+      <li><time>Sep 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2609.28976">ReVNM: Learning-Based Visual Navigation from a Remote Camera</a>, led by M. Eguchi, is on arXiv.</div></li>
+      <li><time>Aug 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2608.18672">Orienteering Problem with Uncertain Time-Varying Rewards</a> is on arXiv.</div></li>
+      <li><time>Feb 2026</time><div>Our paper on uncertainty-aware planetary rover navigation is published in <i>Scientific Reports</i>.</div></li>
+      <li><time>Apr 2025</time><div>Joined <a href="https://research.cyberagent.ai/">CyberAgent AI Lab</a> as a Research Scientist.</div></li>
+      <li><time>Mar 2025</time><div>Received my Ph.D. in Engineering from Keio University.</div></li>
+    </ul>
+  </section>
+
+  <!-- ====================================================== SELECTED PUBS -->
+  <section id="publications">
+    <h2>Selected Publications</h2>
+
+    <article class="pub">
+      <figure><img src="assets/img/pubs/cors2026.jpg" alt="" loading="lazy"></figure>
+      <div>
+        <span class="venue">arXiv 2026</span>
+        <p class="title">Commonsense-Grounded Path Planning from Abstract Instructions</p>
+        <p class="authors"><b>M. Endo</b>, K. Honda, and R. Yonetani</p>
+        <p class="venue-line">arXiv preprint, 2026</p>
+        <div class="btns">
+          <button data-abs>Abs</button>
+          <a href="https://arxiv.org/abs/2609.22813">arXiv</a>
+        </div>
+        <div class="abs">We present <i>commonsense ranked search</i> (CoRS), a novel path planner that turns an abstract instruction into a route that follows commonsense. While existing methods respect the considerations written down in advance, a robot working among people must follow those left unstated too, as with a wet floor that a worker avoids without being told. CoRS leverages large language models (LLMs) and vision-language models (VLMs) as commonsense knowledge to reason about these latent considerations in its planning. Given an abstract instruction (<i>e.g.</i>, &ldquo;move carefully&rdquo;) and visual observations of each region in the environment, CoRS derives a consideration for each region, as in &ldquo;this wet floor is slippery and worth a detour.&rdquo; It then compares the considerations between regions to see which of the two the robot should avoid more, as in &ldquo;the crowd is worse than the wet floor.&rdquo; These judgments sort the regions into a commonsense ranking, whose costs drive a conventional search that always returns a valid route. We build a benchmark for planning under latent considerations, with three environments, 1350 problems, and five instructions at three levels of abstraction. Experiments show that CoRS discovers the unstated considerations and goes around the ones worth a detour while crossing the rest, a behavior that recent LLM-based planners do not achieve.</div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <figure><img src="assets/img/pubs/oputvr2026.jpg" alt="" loading="lazy"></figure>
+      <div>
+        <span class="venue">arXiv 2026</span>
+        <p class="title">Orienteering Problem with Uncertain Time-Varying Rewards: Framework and Benchmark for Everyday Service Robotics</p>
+        <p class="authors"><b>M. Endo</b>, K. Honda, Y. Jinnai, and R. Yonetani</p>
+        <p class="venue-line">arXiv preprint, 2026</p>
+        <div class="btns">
+          <button data-abs>Abs</button>
+          <a href="https://arxiv.org/abs/2608.18672">arXiv</a>
+        </div>
+        <div class="abs">We present the orienteering problem with uncertain time-varying rewards (OP-UTVR), a novel variant of the orienteering problem (OP). While most existing OP formulations assume rewards to be known in advance, practical applications involve uncertain and time-varying rewards, as with shifting customer demand for delivery agents. OP-UTVR relaxes this assumption by allowing agents to estimate reward dynamics from observations and forecast future rewards. This enables informed routing decisions despite stochastic reward changes and inevitable prediction errors. We address this problem using three planners that differ in planning horizon and online adaptivity, and derive theoretical bounds on their performance under reward stochasticity. We further introduce a mobile service robot benchmark for OP-UTVR, where a robot navigates among pedestrians in indoor environments. Experiments reveal trade-offs between planning horizon and adaptivity, and demonstrate the effectiveness of long-horizon planning with online adaptation.</div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <figure><img src="assets/img/pubs/scirep2026.jpg" alt="" loading="lazy"></figure>
+      <div>
+        <span class="venue">Sci. Rep.</span>
+        <p class="title">Deep Probabilistic Traversability with Test-time Adaptation for Uncertainty-aware Planetary Rover Navigation</p>
+        <p class="authors"><b>M. Endo</b>, T. Taniai, and G. Ishigami</p>
+        <p class="venue-line">Scientific Reports, 2026</p>
+        <div class="btns">
+          <button data-abs>Abs</button>
+          <a href="https://www.nature.com/articles/s41598-026-40109-1">Paper</a>
+          <a href="https://arxiv.org/abs/2409.00641">arXiv</a>
+        </div>
+        <div class="abs">Traversability assessment of deformable terrain is vital for safe rover navigation on planetary surfaces. Machine learning (ML) is a powerful tool for traversability prediction but faces predictive uncertainty. This uncertainty leads to prediction errors, increasing the risk of wheel slips and immobilization for planetary rovers. To address this issue, we integrate principal approaches to uncertainty handling &mdash; quantification, exploitation, and adaptation &mdash; into a single learning and planning framework for rover navigation. The key concept is <i>deep probabilistic traversability</i>, forming the basis of an end-to-end probabilistic ML model that predicts slip distributions directly from rover traverse observations. This probabilistic model quantifies uncertainties in slip prediction and exploits them as traversability costs in path planning. Its end-to-end nature also allows adaptation of pre-trained models with in-situ traverse experience to reduce uncertainties. We perform extensive simulations in synthetic environments that pose representative uncertainties in planetary analog terrains. Experimental results show that our method achieves more robust path planning under novel environmental conditions than existing approaches.</div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <figure><img src="assets/img/pubs/icra2025.jpg" alt="" loading="lazy"></figure>
+      <div>
+        <span class="venue">ICRA 2025</span>
+        <p class="title">Risk-aware Integrated Task and Motion Planning for Versatile Snake Robots under Localization Failures</p>
+        <p class="authors">A. Jasour*, G. Daddi*, <b>M. Endo</b>*, T. S. Vaquero*, M. Paton, M. P. Strub, S. Corpino, M. Ingham, M. Ono, and R. Thakker</p>
+        <p class="venue-line">IEEE International Conference on Robotics and Automation (ICRA), 2025</p>
+        <div class="btns">
+          <button data-abs>Abs</button>
+          <a href="https://arxiv.org/abs/2502.19690">arXiv</a>
+        </div>
+        <p class="note">* equal contribution</p>
+        <div class="abs">Snake robots enable mobility through extreme terrains and confined environments in terrestrial and space applications. However, robust perception and localization for snake robots remain an open challenge due to the proximity of the sensor payload to the ground coupled with a limited field of view. To address this issue, we propose Blind-motion with Intermittently Scheduled Scans (BLISS) which combines proprioception-only mobility with intermittent scans to be resilient against both localization failures and collision risks. BLISS is formulated as an integrated Task and Motion Planning (TAMP) problem that leads to a Chance-Constrained Hybrid Partially Observable Markov Decision Process (CC-HPOMDP), known to be computationally intractable due to the curse of history. Our novelty lies in reformulating CC-HPOMDP as a tractable, convex Mixed Integer Linear Program. This allows us to solve BLISS-TAMP significantly faster and jointly derive optimal task-motion plans. Simulations and hardware experiments on the EELS snake robot show our method achieves over an order of magnitude computational improvement compared to state-of-the-art POMDP planners and &gt;50% better navigation time optimality versus classical two-stage planners.</div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <figure><img src="assets/img/pubs/icra2023.jpg" alt="" loading="lazy"></figure>
+      <div>
+        <span class="venue">ICRA 2023</span>
+        <p class="title">Risk-aware Path Planning via Probabilistic Fusion of Traversability Prediction for Planetary Rovers on Heterogeneous Terrains</p>
+        <p class="authors"><b>M. Endo</b>, T. Taniai, R. Yonetani, and G. Ishigami</p>
+        <p class="venue-line">IEEE International Conference on Robotics and Automation (ICRA), 2023</p>
+        <div class="btns">
+          <button data-abs>Abs</button>
+          <a href="https://arxiv.org/abs/2303.01169">arXiv</a>
+          <a href="https://omron-sinicx.github.io/safe-rover-navi/">Project</a>
+          <a href="https://github.com/omron-sinicx/safe-rover-navi">Code</a>
+          <a href="https://www.youtube.com/watch?v=ax2SNa8vJ0k">Video</a>
+          <a href="https://medium.com/sinicx/risk-aware-path-planning-method-for-mobile-robots-in-planetary-environments-icra-2023-1cf42c29e380">Blog</a>
+        </div>
+        <div class="abs">Machine learning (ML) plays a crucial role in assessing traversability for autonomous rover operations on deformable terrains but suffers from inevitable prediction errors. Especially for heterogeneous terrains where the geological features vary from place to place, erroneous traversability prediction can become more apparent, increasing the risk of unrecoverable rover's wheel slip and immobilization. In this work, we propose a new path planning algorithm that explicitly accounts for such erroneous prediction. The key idea is the probabilistic fusion of distinctive ML models for terrain type classification and slip prediction into a single distribution. This gives us a multimodal slip distribution accounting for heterogeneous terrains and further allows statistical risk assessment to be applied to derive risk-aware traversing costs for path planning. Extensive simulation experiments have demonstrated that the proposed method is able to generate more feasible paths on heterogeneous terrains compared to existing methods.</div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <figure><img src="assets/img/pubs/ral2022.jpg" alt="" loading="lazy"></figure>
+      <div>
+        <span class="venue">RA-L 2022</span>
+        <p class="title">Active Traversability Learning via Risk-aware Information Gathering for Planetary Exploration Rovers</p>
+        <p class="authors"><b>M. Endo</b> and G. Ishigami</p>
+        <p class="venue-line">IEEE Robotics and Automation Letters, vol. 7(4), pp. 11855–11862, 2022 (presented at IROS 2022)</p>
+        <div class="btns">
+          <a href="https://ieeexplore.ieee.org/document/9894664">Paper</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ====================================================== FULL LIST -->
+    <h3>All Publications</h3>
+    <p class="note" style="margin-top:-6px;margin-bottom:10px">See also <a href="https://scholar.google.com/citations?user=w-yR6eEAAAAJ">Google Scholar</a>.</p>
+
+    <h2 style="margin-top:22px">Preprints</h2>
+    <ol class="plist">
+      <li><span class="t">ReVNM: Learning-Based Visual Navigation from a Remote Camera</span><br><span class="a">M. Eguchi, K. Honda, <b>M. Endo</b>, Y. Yoshimura, and R. Yonetani</span><br><span class="v">arXiv, 2026</span><div class="btns"><a href="https://arxiv.org/abs/2609.28976">arXiv</a></div></li>
+      <li><span class="t">Commonsense-Grounded Path Planning from Abstract Instructions</span><br><span class="a"><b>M. Endo</b>, K. Honda, and R. Yonetani</span><br><span class="v">arXiv, 2026</span><div class="btns"><a href="https://arxiv.org/abs/2609.22813">arXiv</a></div></li>
+      <li><span class="t">Orienteering Problem with Uncertain Time-Varying Rewards: Framework and Benchmark for Everyday Service Robotics</span><br><span class="a"><b>M. Endo</b>, K. Honda, Y. Jinnai, and R. Yonetani</span><br><span class="v">arXiv, 2026</span><div class="btns"><a href="https://arxiv.org/abs/2608.18672">arXiv</a></div></li>
+    </ol>
+
+    <h2 style="margin-top:28px">Journal Papers</h2>
+    <ol class="plist">
+      <li><span class="t">Deep Probabilistic Traversability with Test-time Adaptation for Uncertainty-aware Planetary Rover Navigation</span><br><span class="a"><b>M. Endo</b>, T. Taniai, and G. Ishigami</span><br><span class="v">Scientific Reports, 2026</span><div class="btns"><a href="https://www.nature.com/articles/s41598-026-40109-1">Paper</a><a href="https://arxiv.org/abs/2409.00641">arXiv</a></div></li>
+      <li><span class="t">Active Traversability Learning via Risk-aware Information Gathering for Planetary Exploration Rovers</span><br><span class="a"><b>M. Endo</b> and G. Ishigami</span><br><span class="v">IEEE Robotics and Automation Letters, vol. 7(4), pp. 11855–11862, 2022</span><div class="btns"><a href="https://ieeexplore.ieee.org/document/9894664">Paper</a></div></li>
+      <li><span class="t">Accurate Prediction of Machining Cycle Times by Data-driven Modelling of NC System's Interpolation Dynamics</span><br><span class="a"><b>M. Endo</b> and B. Sencer</span><br><span class="v">CIRP Annals, vol. 71(1), pp. 405–408, 2022</span><div class="btns"><a href="https://www.sciencedirect.com/science/article/pii/S0007850622000671">Paper</a></div></li>
+      <li><span class="t">Terrain-dependent Slip Risk Prediction for Planetary Exploration Rovers</span><br><span class="a"><b>M. Endo</b>, S. Endo, K. Nagaoka, and K. Yoshida</span><br><span class="v">Robotica, vol. 39(10), pp. 1883–1896, 2021</span><div class="btns"><a href="https://www.cambridge.org/core/journals/robotica/article/abs/terraindependent-slip-risk-prediction-for-planetary-exploration-rovers/153556093D303FBC77A1261946D0F0F1">Paper</a></div></li>
+    </ol>
+
+    <h2 style="margin-top:28px">Conference Papers</h2>
+    <ol class="plist">
+      <li><span class="t">DRPA-MPPI: Dynamic Repulsive Potential Augmented MPPI for Reactive Navigation in Unstructured Environments</span><br><span class="a">T. Fuke, <b>M. Endo</b>, K. Honda, and G. Ishigami</span><br><span class="v">IEEE International Conference on Automation Science and Engineering (CASE), 2025</span><div class="btns"><a href="https://arxiv.org/abs/2503.20134">arXiv</a></div></li>
+      <li><span class="t">Risk-aware Integrated Task and Motion Planning for Versatile Snake Robots under Localization Failures</span><br><span class="a">A. Jasour*, G. Daddi*, <b>M. Endo</b>*, T. S. Vaquero*, M. Paton, M. P. Strub, S. Corpino, M. Ingham, M. Ono, and R. Thakker</span><br><span class="v">IEEE International Conference on Robotics and Automation (ICRA), 2025</span><div class="btns"><a href="https://arxiv.org/abs/2502.19690">arXiv</a></div></li>
+      <li><span class="t">Towards Local Minima-free Robotic Navigation: Model Predictive Path Integral Control via Repulsive Potential Augmentation</span><br><span class="a">T. Fuke, <b>M. Endo</b>, K. Honda, and G. Ishigami</span><br><span class="v">IEEE/SICE International Symposium on System Integration (SII), 2025</span><div class="btns"><a href="https://arxiv.org/abs/2410.11379">arXiv</a></div></li>
+      <li><span class="t">BenchNav: Simulation Platform for Benchmarking Off-road Navigation Algorithms with Probabilistic Traversability</span><br><span class="a"><b>M. Endo</b>, K. Honda, and G. Ishigami</span><br><span class="v">IEEE ICRA 2024 Workshop on Resilient Off-road Autonomy, 2024</span><div class="btns"><a href="https://arxiv.org/abs/2405.13318">arXiv</a><a href="https://github.com/masafumiendo/benchnav">Code</a></div></li>
+      <li><span class="t">Risk-aware Path Planning via Probabilistic Fusion of Traversability Prediction for Planetary Rovers on Heterogeneous Terrains</span><br><span class="a"><b>M. Endo</b>, T. Taniai, R. Yonetani, and G. Ishigami</span><br><span class="v">IEEE International Conference on Robotics and Automation (ICRA), 2023</span><div class="btns"><a href="https://arxiv.org/abs/2303.01169">arXiv</a><a href="https://omron-sinicx.github.io/safe-rover-navi/">Project</a><a href="https://github.com/omron-sinicx/safe-rover-navi">Code</a></div></li>
+      <li><span class="t">Traveling State Estimation of a Wheeled Robot using ToF Camera and Torque Sensor for Lunar/Planetary Exploration</span><br><span class="a">S. Endo, <b>M. Endo</b>, K. Nagaoka, and K. Yoshida</span><br><span class="v">JSME Conference on Robotics and Mechatronics, 2P1-T03, 2019</span><div class="btns"><a href="https://www.jstage.jst.go.jp/article/jsmermd/2019/0/2019_2P1-T03/_article/-char/en">Paper</a></div></li>
+      <li><span class="t">Quality of the 3D Point Cloud of a Time-of-flight Camera Under Lunar Surface Illumination Conditions: Impact and Improvement Techniques</span><br><span class="a">K. Uno, L.-J. Burtz, <b>M. Endo</b>, K. Nagaoka, and K. Yoshida</span><br><span class="v">International Symposium on Artificial Intelligence, Robotics and Automation in Space (i-SAIRAS), 2018</span><div class="btns"><a href="https://robotics.estec.esa.int/i-SAIRAS/isairas2018/Papers/Session%2010a/2_uno-86-110-Uno-Kentaro.pdf">Paper</a></div></li>
+    </ol>
+
+    <h2 style="margin-top:28px">Presentations</h2>
+    <ol class="plist">
+      <li><span class="t">Active Traversability Learning via Risk-aware Information Gathering for Planetary Exploration Rovers</span><br><span class="a"><b>M. Endo</b> and G. Ishigami</span><br><span class="v">IEEE/RSJ IROS, Kyoto, Japan, Oct. 2022</span></li>
+      <li><span class="t">Machining Cycle-time Prediction by Machine Learning of CNC Interpolator Dynamics</span><br><span class="a"><b>M. Endo</b> and B. Sencer</span><br><span class="v">International Manufacturing Science and Engineering Conference, OH, USA, Jun. 2021</span></li>
+      <li><span class="t">Microsatellite Bus System Technologies of Tohoku University</span><br><span class="a">T. Kuwahara, Y. Sakamoto, S. Fujita, Y. Sato, R. Taba, H. Katagiri, <b>M. Endo</b>, P. Tangdhanakanond, T. Honda, and K. Yoshida</span><br><span class="v">IAA North East Asia Symposium on Small Satellites, Ulaanbaatar, Mongolia, Aug. 2017</span></li>
+    </ol>
+  </section>
+
+  <!-- ====================================================== EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="tl">
+      <li><div class="when">Apr 2025 – now</div><div><div class="org"><a href="https://research.cyberagent.ai/">CyberAgent AI Lab</a></div><div class="what">Research Scientist, Activity Understanding Team</div></div></li>
+      <li><div class="when">Aug – Nov 2024</div><div><div class="org"><a href="https://www.jpl.nasa.gov/">NASA Jet Propulsion Laboratory</a></div><div class="what">Research Intern (JVSRP), Robotic Mobility Group · Mentors: M. Ono, A. Jasour, R. Thakker</div></div></li>
+      <li><div class="when">Oct – Dec 2023</div><div><div class="org"><a href="https://www.fieldai.com/">Field AI</a></div><div class="what">Research Intern · Mentor: D. D. Fan</div></div></li>
+      <li><div class="when">Jun 2022 – Mar 2023</div><div><div class="org"><a href="https://www.omron.com/sinicx/en/">OMRON SINIC X</a></div><div class="what">Research Intern · Mentors: R. Yonetani, T. Taniai</div></div></li>
+      <li><div class="when">Sep 2019 – Aug 2021</div><div><div class="org">Oregon State University</div><div class="what">Graduate Research Assistant, <a href="https://research.engineering.oregonstate.edu/mpcl/">Manufacturing Process Control Lab</a> · Advisor: Prof. Burak Sencer</div></div></li>
+    </ul>
+
+    <div class="two">
+      <div>
+        <h3>Education</h3>
+        <ul class="tl">
+          <li><div class="when">2021 – 2025</div><div><div class="org">Keio University</div><div class="what">Ph.D. in Engineering · Advisor: <a href="https://www.srg.mech.keio.ac.jp/">Prof. Genya Ishigami</a><br>JSPS Research Fellow (DC1)</div></div></li>
+          <li><div class="when">2019 – 2021</div><div><div class="org">Oregon State University</div><div class="what">M.S. in Robotics · Advisor: <a href="https://engineering.oregonstate.edu/people/burak-sencer">Prof. Burak Sencer</a></div></div></li>
+          <li><div class="when">2017 – 2019</div><div><div class="org">Tohoku University</div><div class="what">M.Eng. in Aerospace Engineering · Advisors: <a href="https://www.astro.mech.tohoku.ac.jp/">Prof. Kazuya Yoshida</a> and Prof. Kenji Nagaoka</div></div></li>
+          <li><div class="when">2013 – 2017</div><div><div class="org"><a href="https://www.kobe-u.ac.jp/en/">Kobe University</a></div><div class="what">B.Eng. in Mechanical Engineering</div></div></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Service</h3>
+        <ul class="plain">
+          <li>Reviewer: ICRA (2023, 2024, 2026, 2027), IROS (2022–2026), RA-L, T-RO, IEEJ Trans.</li>
+          <li>Teaching Assistant: ME 413, Oregon State University (Spring 2020)</li>
+        </ul>
+        <h3>Fellowships &amp; Awards</h3>
+        <ul class="plain">
+          <li>JSPS Overseas Challenge Program for Young Researchers (2024)</li>
+          <li>JSPS Research Fellowship for Young Scientists DC1 (2022–2025)</li>
+          <li>JEES / Mitsubishi Corporation Scholarship (2023–2024)</li>
+          <li>Keio Research Encouragement Scholarship (2023, 2024)</li>
+          <li>Keio Fujiwara Scholarship (2021)</li>
+          <li>NSF NAMRC 49 / MSEC 2021 Student Support Award (2021)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Masafumi Endo · Shibuya Scramble Square, Tokyo</div>
+</footer>
+
+<dialog id="lightbox" aria-label="Enlarged figure"><img alt=""></dialog>
+
+<script>
+  document.querySelectorAll('[data-abs]').forEach(b => {
+    b.setAttribute('aria-expanded', 'false');
+    b.addEventListener('click', () => {
+      const abs = b.closest('div').parentElement.querySelector('.abs');
+      const open = abs.classList.toggle('open');
+      b.setAttribute('aria-expanded', open);
+    });
+  });
+  const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
+  document.querySelectorAll('.pub figure img').forEach(img => {
+    img.closest('figure').addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.closest('.pub').querySelector('.title').textContent;
+      lb.showModal();
+    });
+  });
+  lb.addEventListener('click', () => lb.close());
+
+  const root = document.documentElement, key = 'theme';
+  try { const t = localStorage.getItem(key); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById('theme').addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
+  });
+</script>
+</body>
+</html>
