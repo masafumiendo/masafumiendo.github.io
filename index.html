@@ -5,9 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Masafumi Endo</title>
 <meta name="description" content="Masafumi Endo (遠藤正文) — Research Scientist at CyberAgent AI Lab, working on embodied AI for everyday scenarios, with a focus on decision-making and scene understanding.">
+<link rel="canonical" href="https://masafumiendo.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Masafumi Endo">
+<meta property="og:title" content="Masafumi Endo">
+<meta property="og:description" content="Research Scientist at CyberAgent AI Lab, working on embodied AI for everyday scenarios, with a focus on decision-making and scene understanding.">
+<meta property="og:url" content="https://masafumiendo.github.io/">
+<meta property="og:image" content="https://masafumiendo.github.io/assets/img/profile.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="750">
+<meta property="og:image:alt" content="Portrait of Masafumi Endo">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<script>
+  /* Resolve the theme before first paint: stored choice, else OS preference. */
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t !== 'dark' && t !== 'light') {
+      t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&text=%E9%81%A0%E8%97%A4%E6%AD%A3%E6%96%87&display=swap" rel="stylesheet">
 <style>
 /* CyberAgent greens: #418621 (AI Lab) on light, #82be28 (corporate) on dark */
 :root {
@@ -27,6 +53,12 @@
 :root[data-theme="dark"] {
   --bg: #111716; --surface: #192221; --ink: #e8ecea; --ink-2: #b1b9b6; --ink-3: #7b8582;
   --rule: #293130; --accent: #82be28; --accent-soft: #22301a; --fig-bg: #f4f5f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111716; --surface: #192221; --ink: #e8ecea; --ink-2: #b1b9b6; --ink-3: #7b8582;
+    --rule: #293130; --accent: #82be28; --accent-soft: #22301a; --fig-bg: #f4f5f4;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -60,7 +92,7 @@ nav ul a:hover { color: var(--accent); text-decoration: none; }
 /* ---------- hero ---------- */
 .hero { display: grid; grid-template-columns: 1fr 220px; gap: 48px; padding: 64px 0 40px; align-items: start; }
 .hero h1 { font: 600 42px/1.1 var(--serif); margin: 0; letter-spacing: -0.02em; }
-.hero .jp { font: 400 18px var(--sans); color: var(--ink-3); margin: 6px 0 18px; letter-spacing: 0.08em; }
+.hero .jp { font: 500 17px "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; color: var(--ink-2); margin: 8px 0 18px; letter-spacing: 0.14em; }
 .hero .role { font-weight: 500; margin: 0 0 18px; }
 .hero .role span { color: var(--ink-2); font-weight: 400; }
 .hero p { margin: 0 0 14px; color: var(--ink-2); }
@@ -205,12 +237,12 @@ footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48
         I am a Research Scientist on the
         <a href="https://research.cyberagent.ai/research/activity-understanding/">Activity Understanding Team</a>
         at <a href="https://research.cyberagent.ai/">CyberAgent AI Lab</a>.
-        I have been passionate about developing embodied intelligence through robotics for human society.
+        I have long been passionate about building embodied intelligence that brings robots into human society.
       </p>
       <p>
         During my Ph.D. at Keio University, advised by <a href="https://www.srg.mech.keio.ac.jp/">Prof. Genya Ishigami</a>, I worked on
-        <strong>risk-aware robotic autonomy for rough terrain exploration</strong>, mainly for planetary rovers.
-        Now I work on <strong>embodied AI for everyday scenarios</strong>, focusing on decision-making and scene understanding.
+        <strong>risk-aware robotic autonomy for rough-terrain exploration</strong>, with a focus on planetary rovers.
+        I now work on <strong>embodied AI for everyday scenarios</strong>, focusing on decision-making and scene understanding.
       </p>
       <p>
         Before joining CyberAgent, I interned at <a href="https://www.jpl.nasa.gov/">NASA JPL</a>, <a href="https://www.fieldai.com/">Field AI</a>, and <a href="https://www.omron.com/sinicx/en/">OMRON SINIC X</a>.
@@ -244,9 +276,9 @@ footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48
     <ul class="news">
       <li><time>Oct 2026</time><div>Launched my new website.</div></li>
       <li><time>Sep 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2609.22813">Commonsense-Grounded Path Planning from Abstract Instructions</a> is on arXiv.</div></li>
-      <li><time>Sep 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2609.28976">ReVNM: Learning-Based Visual Navigation from a Remote Camera</a>, led by M. Eguchi, is on arXiv.</div></li>
+      <li><time>Sep 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2609.28976">ReVNM: Learning-Based Visual Navigation from a Remote Camera</a> is on arXiv.</div></li>
       <li><time>Aug 2026</time><div>New preprint: <a href="https://arxiv.org/abs/2608.18672">Orienteering Problem with Uncertain Time-Varying Rewards</a> is on arXiv.</div></li>
-      <li><time>Feb 2026</time><div>Our paper on uncertainty-aware planetary rover navigation is published in <i>Scientific Reports</i>.</div></li>
+      <li><time>Feb 2026</time><div>Journal paper: <a href="https://www.nature.com/articles/s41598-026-40109-1">Deep Probabilistic Traversability with Test-time Adaptation</a> is published in <i>Scientific Reports</i>.</div></li>
       <li><time>Apr 2025</time><div>Joined <a href="https://research.cyberagent.ai/">CyberAgent AI Lab</a> as a Research Scientist.</div></li>
       <li><time>Mar 2025</time><div>Received my Ph.D. in Engineering from Keio University.</div></li>
     </ul>
@@ -345,8 +377,10 @@ footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48
         <p class="authors"><b>M. Endo</b> and G. Ishigami</p>
         <p class="venue-line">IEEE Robotics and Automation Letters, vol. 7(4), pp. 11855–11862, 2022 (presented at IROS 2022)</p>
         <div class="btns">
+          <button data-abs>Abs</button>
           <a href="https://ieeexplore.ieee.org/document/9894664">Paper</a>
         </div>
+        <div class="abs">Traversability prediction enables safe and efficient autonomous rover operation on deformable planetary surfaces. Revealing spatial distribution from terrain geometry to rover slip behavior is key to assessing prospective traversability, but is hindered by insufficient in situ measurements on hazardous states due to conservative rover traverses. To achieve a more accurate prediction, this letter proposes a framework that actively learns latent traversability by exploring informative terrain under the constraints of stochastic rover slip. With a Gaussian process (GP) modeling the spatial distribution, we devise an iterative two-stage framework that gradually refines the model estimation, combining risk-aware informative path planning and GP updates by taking in situ measurements. The path planning stage employs our designed sampling-based algorithm to generate informative trajectories with fault-tolerant risk inference, while the GP is cautiously updated with traverse data to avoid rover immobilization. Chance constraint formulation is exploited in the framework to infer the stochastic reachability of informative regions. Through GP estimates reducing uncertainty, the algorithm incrementally reaches informative yet hazardous states along feasible trajectories. Simulation studies in rough terrain environments demonstrate that the proposed framework gathers informative traverse data while averting rover stuck situations to estimate the latent traversability model.</div>
       </div>
     </article>
 
@@ -375,7 +409,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48
       <li><span class="t">Risk-aware Integrated Task and Motion Planning for Versatile Snake Robots under Localization Failures</span><br><span class="a">A. Jasour*, G. Daddi*, <b>M. Endo</b>*, T. S. Vaquero*, M. Paton, M. P. Strub, S. Corpino, M. Ingham, M. Ono, and R. Thakker</span><br><span class="v">IEEE International Conference on Robotics and Automation (ICRA), 2025</span><div class="btns"><a href="https://arxiv.org/abs/2502.19690">arXiv</a></div></li>
       <li><span class="t">Towards Local Minima-free Robotic Navigation: Model Predictive Path Integral Control via Repulsive Potential Augmentation</span><br><span class="a">T. Fuke, <b>M. Endo</b>, K. Honda, and G. Ishigami</span><br><span class="v">IEEE/SICE International Symposium on System Integration (SII), 2025</span><div class="btns"><a href="https://arxiv.org/abs/2410.11379">arXiv</a></div></li>
       <li><span class="t">BenchNav: Simulation Platform for Benchmarking Off-road Navigation Algorithms with Probabilistic Traversability</span><br><span class="a"><b>M. Endo</b>, K. Honda, and G. Ishigami</span><br><span class="v">IEEE ICRA 2024 Workshop on Resilient Off-road Autonomy, 2024</span><div class="btns"><a href="https://arxiv.org/abs/2405.13318">arXiv</a><a href="https://github.com/masafumiendo/benchnav">Code</a></div></li>
-      <li><span class="t">Risk-aware Path Planning via Probabilistic Fusion of Traversability Prediction for Planetary Rovers on Heterogeneous Terrains</span><br><span class="a"><b>M. Endo</b>, T. Taniai, R. Yonetani, and G. Ishigami</span><br><span class="v">IEEE International Conference on Robotics and Automation (ICRA), 2023</span><div class="btns"><a href="https://arxiv.org/abs/2303.01169">arXiv</a><a href="https://omron-sinicx.github.io/safe-rover-navi/">Project</a><a href="https://github.com/omron-sinicx/safe-rover-navi">Code</a></div></li>
+      <li><span class="t">Risk-aware Path Planning via Probabilistic Fusion of Traversability Prediction for Planetary Rovers on Heterogeneous Terrains</span><br><span class="a"><b>M. Endo</b>, T. Taniai, R. Yonetani, and G. Ishigami</span><br><span class="v">IEEE International Conference on Robotics and Automation (ICRA), 2023</span><div class="btns"><a href="https://arxiv.org/abs/2303.01169">arXiv</a><a href="https://omron-sinicx.github.io/safe-rover-navi/">Project</a><a href="https://github.com/omron-sinicx/safe-rover-navi">Code</a><a href="https://www.youtube.com/watch?v=ax2SNa8vJ0k">Video</a><a href="https://medium.com/sinicx/risk-aware-path-planning-method-for-mobile-robots-in-planetary-environments-icra-2023-1cf42c29e380">Blog</a></div></li>
       <li><span class="t">Traveling State Estimation of a Wheeled Robot using ToF Camera and Torque Sensor for Lunar/Planetary Exploration</span><br><span class="a">S. Endo, <b>M. Endo</b>, K. Nagaoka, and K. Yoshida</span><br><span class="v">JSME Conference on Robotics and Mechatronics, 2P1-T03, 2019</span><div class="btns"><a href="https://www.jstage.jst.go.jp/article/jsmermd/2019/0/2019_2P1-T03/_article/-char/en">Paper</a></div></li>
       <li><span class="t">Quality of the 3D Point Cloud of a Time-of-flight Camera Under Lunar Surface Illumination Conditions: Impact and Improvement Techniques</span><br><span class="a">K. Uno, L.-J. Burtz, <b>M. Endo</b>, K. Nagaoka, and K. Yoshida</span><br><span class="v">International Symposium on Artificial Intelligence, Robotics and Automation in Space (i-SAIRAS), 2018</span><div class="btns"><a href="https://robotics.estec.esa.int/i-SAIRAS/isairas2018/Papers/Session%2010a/2_uno-86-110-Uno-Kentaro.pdf">Paper</a></div></li>
     </ol>
@@ -405,7 +439,7 @@ footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48
         <ul class="tl">
           <li><div class="when">2021 – 2025</div><div><div class="org">Keio University</div><div class="what">Ph.D. in Engineering · Advisor: <a href="https://www.srg.mech.keio.ac.jp/">Prof. Genya Ishigami</a><br>JSPS Research Fellow (DC1)</div></div></li>
           <li><div class="when">2019 – 2021</div><div><div class="org">Oregon State University</div><div class="what">M.S. in Robotics · Advisor: <a href="https://engineering.oregonstate.edu/people/burak-sencer">Prof. Burak Sencer</a></div></div></li>
-          <li><div class="when">2017 – 2019</div><div><div class="org">Tohoku University</div><div class="what">M.Eng. in Aerospace Engineering · Advisors: <a href="https://www.astro.mech.tohoku.ac.jp/">Prof. Kazuya Yoshida</a> and Prof. Kenji Nagaoka</div></div></li>
+          <li><div class="when">2017 – 2019</div><div><div class="org">Tohoku University</div><div class="what">M.Eng. in Aerospace Engineering · Advisors: <a href="https://www.astro.mech.tohoku.ac.jp/">Prof. Kazuya Yoshida</a> and <a href="http://www.mech.kyutech.ac.jp/srl/index_e.html">Prof. Kenji Nagaoka</a></div></div></li>
           <li><div class="when">2013 – 2017</div><div><div class="org"><a href="https://www.kobe-u.ac.jp/en/">Kobe University</a></div><div class="what">B.Eng. in Mechanical Engineering</div></div></li>
         </ul>
       </div>
@@ -455,11 +489,10 @@ footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48
   });
   lb.addEventListener('click', () => lb.close());
 
-  const root = document.documentElement, key = 'theme';
-  try { const t = localStorage.getItem(key); if (t) root.dataset.theme = t; } catch (e) {}
+  const root = document.documentElement;
   document.getElementById('theme').addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem(key, root.dataset.theme); } catch (e) {}
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
   });
 </script>
 </body>
